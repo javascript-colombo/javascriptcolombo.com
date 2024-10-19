@@ -1,18 +1,49 @@
 {
-  "name": "@./source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
   "private": true,
-  "dependencies": {},
+  "name": "<__JS_NPM_PACKAGE_NAME__>",
+  "version": "0.0.0",
+  "description": "<__WORKSPACE_DESCRIPTION__>",
+  "keywords": [
+    "<__WORKSPACE_KEYWORDS__>"
+  ],
+  "homepage": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>#readme",
+  "bugs": {
+    "url": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>/issues"
+  },
+  "license": "MIT",
+  "author": "<__GITHUB_DISPLAY_NAME__>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "commit": "cz",
+    "dev": "turbo dev",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,cjs,css,json,md,mdx,yml}\"",
+    "lint": "turbo lint",
+    "publish:packages": "changeset publish",
+    "test": "turbo test",
+    "version:packages": "changeset version && pnpm install --lockfile-only",
+    "prepare": "husky"
+  },
   "devDependencies": {
-    "@nx/js": "20.0.0",
-    "@swc-node/register": "~1.9.1",
-    "@swc/core": "~1.5.7",
-    "@swc/helpers": "~0.5.11",
-    "nx": "20.0.0",
-    "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
-    "typescript": "~5.5.2"
+    "@brionmario/eslint-plugin": "^0.2.9",
+    "@brionmario/prettier-config": "^0.1.0",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-turbo": "^1.13.3",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
   }
 }
