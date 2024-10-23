@@ -1,26 +1,46 @@
 {
-  "name": "www",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@javascriptcolombo/www",
+  "version": "0.0.0",
+  "description": "Official website of JavaScript Colombo (www.javascriptcolombo.com)",
+  "keywords": [
+    "javascriptcolombo.com",
+    "meetup"
+  ],
+  "homepage": "https://github.com/javascriptcolombo/javascriptcolombo.com#readme",
+  "bugs": {
+    "url": "https://github.com/javascriptcolombo/javascriptcolombo.com/issues"
+  },
+  "license": "MIT",
+  "author": "JavaScript Colombo Team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/javascriptcolombo/javascriptcolombo.com/",
+    "directory": "apps/www"
+  },
   "scripts": {
-    "dev": "next dev --turbo",
     "build": "next build",
+    "dev": "next dev --turbo",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx}\"",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noemit"
   },
   "dependencies": {
+    "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
-    "next": "15.0.0-rc.0"
+    "react-dom": "19.0.0-rc-f994737d14-20240522"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
+    "@brionmario/eslint-plugin": "^0.3.4",
+    "@brionmario/prettier-config": "^0.1.0",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "15.0.0-rc.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.0-rc.0"
+    "typescript": "^5.3.3"
   }
 }
