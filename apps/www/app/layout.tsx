@@ -27,6 +27,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import {NextFontWithVariable} from 'next/dist/compiled/@next/font';
 import {ReactElement} from 'react';
+import ThemeProvider from '@/components/ThemeProvider';
 
 const geistSans: NextFontWithVariable = localFont({
   src: './fonts/GeistVF.woff',
@@ -49,7 +50,11 @@ const RootLayout = ({
   children: React.ReactNode;
 }>): ReactElement => (
   <html lang="en">
-    <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+    <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        {children}
+      </ThemeProvider>
+    </body>
   </html>
 );
 
