@@ -22,11 +22,11 @@
  * SOFTWARE.
  */
 
-import {cn} from '@/lib/utils';
 import {useTheme} from 'next-themes';
+import {ForwardedRef, forwardRef, ForwardRefExoticComponent, ReactElement, RefAttributes} from 'react';
+import {cn} from '@/lib/utils';
 import Button, {ButtonProps} from '@/components/Button';
 import {TestableComponent} from '@/types/dom';
-import {ForwardedRef, forwardRef, ForwardRefExoticComponent, PropsWithChildren, ReactElement} from 'react';
 import {Theme} from '@/types/theme';
 import MoonIcon from '@/icons/MoonIcon';
 import SunIcon from '@/icons/SunIcon';
@@ -34,9 +34,8 @@ import SunIcon from '@/icons/SunIcon';
 /**
  * The `ThemeSwitchProps` interface represents the props accepted by the `ThemeSwitch` component.
  */
-export type ThemeSwitchProps = ButtonProps &
-  TestableComponent &
-  PropsWithChildren<{
+export type ThemeSwitchProps = TestableComponent &
+  ButtonProps & {
     /**
      * The variant of the theme switch component.
      * It can be either `'icon'` or `'labelled'`.
@@ -44,7 +43,7 @@ export type ThemeSwitchProps = ButtonProps &
      * @defaultValue `'icon'`
      */
     variant?: 'icon' | 'labelled';
-  }>;
+  };
 
 /**
  * `ThemeSwitch` is a React component that allows users to toggle between light and dark themes.
@@ -57,7 +56,10 @@ export type ThemeSwitchProps = ButtonProps &
  * @param props - Props for the component.
  * @returns ThemeSwitch as a React component.
  */
-const ThemeSwitch: ForwardRefExoticComponent<ThemeSwitchProps> = forwardRef(
+const ThemeSwitch: ForwardRefExoticComponent<ThemeSwitchProps & RefAttributes<HTMLButtonElement>> = forwardRef<
+  HTMLButtonElement,
+  ThemeSwitchProps
+>(
   (
     {children, className, variant = 'icon', bordered, ...rest}: ThemeSwitchProps,
     ref: ForwardedRef<HTMLButtonElement>,
