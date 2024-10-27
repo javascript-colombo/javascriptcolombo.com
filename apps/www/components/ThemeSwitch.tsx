@@ -28,8 +28,8 @@ import {cn} from '@/lib/utils';
 import Button, {ButtonProps} from '@/components/Button';
 import {TestableComponent} from '@/types/dom';
 import {Theme} from '@/types/theme';
-import MoonIcon from '@/icons/MoonIcon';
-import SunIcon from '@/icons/SunIcon';
+import Moon from '@/icons/Moon';
+import Sun from '@/icons/Sun';
 
 /**
  * The `ThemeSwitchProps` interface represents the props accepted by the `ThemeSwitch` component.
@@ -83,6 +83,7 @@ const ThemeSwitch: ForwardRefExoticComponent<ThemeSwitchProps & RefAttributes<HT
           className,
         )}
         size="icon"
+        variant="ghost"
         {...rest}
       >
         <div className="relative h-8 w-8">
@@ -90,13 +91,13 @@ const ThemeSwitch: ForwardRefExoticComponent<ThemeSwitchProps & RefAttributes<HT
             className="absolute inset-0 rotate-90 transform text-gray-500 hover:text-black transition duration-1000 motion-reduce:duration-[0s] dark:rotate-0 dark:hover:text-white dark:text-slate-500"
             style={{transformOrigin: '50% 100px'}}
           >
-            <MoonIcon height={32} width={32} />
+            <Moon height={32} width={32} />
           </span>
           <span
             className="absolute inset-0 rotate-0 transform text-gray-500 hover:text-black transition duration-1000 motion-reduce:duration-[0s] dark:-rotate-90 dark:hover:text-white dark:text-slate-500"
             style={{transformOrigin: '50% 100px'}}
           >
-            <SunIcon height={32} width={32} />
+            <Sun height={32} width={32} />
           </span>
         </div>
       </Button>

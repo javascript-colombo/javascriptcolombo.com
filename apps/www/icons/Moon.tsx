@@ -24,13 +24,12 @@
 
 import {FC, ReactElement, SVGProps} from 'react';
 
-const MoonIcon: FC<SVGProps<SVGSVGElement>> = ({
+const Moon: FC<SVGProps<SVGSVGElement>> = ({
   height = 14,
   width = 14,
   ...rest
 }: SVGProps<SVGSVGElement>): ReactElement => (
   <svg
-    className="w-full"
     viewBox={`0 0 ${height} ${width}`}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -47,4 +46,4 @@ const MoonIcon: FC<SVGProps<SVGSVGElement>> = ({
   </svg>
 );
 
-export default MoonIcon;
+export default Moon;

@@ -33,5 +33,5 @@
  * screen.getByTestId("register-button");
  */
 export interface TestableComponent {
-  'data-testid': string;
+  'data-testid'?: string;
 }

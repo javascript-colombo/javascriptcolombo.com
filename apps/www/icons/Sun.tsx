@@ -24,13 +24,12 @@
 
 import {FC, ReactElement, SVGProps} from 'react';
 
-const SunIcon: FC<SVGProps<SVGSVGElement>> = ({
+const Sun: FC<SVGProps<SVGSVGElement>> = ({
   height = 14,
   width = 14,
   ...rest
 }: SVGProps<SVGSVGElement>): ReactElement => (
   <svg
-    className="w-full"
     viewBox={`0 0 ${height} ${width}`}
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -95,4 +94,4 @@ const SunIcon: FC<SVGProps<SVGSVGElement>> = ({
   </svg>
 );
 
-export default SunIcon;
+export default Sun;

@@ -1,0 +1,72 @@
+@import url('nelum-kuluna.css');
+
+.underlined {
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+    text-decoration: none !important;
+  }
+
+  &:after {
+    content: '';
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    display: block;
+    position: absolute;
+  }
+
+  &:hover:after,
+  &:focus:after,
+  &.active:after {
+    background-color: currentColor;
+    transform: scaleX(1);
+  }
+
+  @media (prefers-reduced-motion) {
+    &:after {
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    &:hover:after,
+    &:focus:after,
+    &.active:after {
+      opacity: 1;
+    }
+  }
+}
+
+.hero {
+  &__title {
+    background: linear-gradient(90deg, #FF4B32 0%, #614BFF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.navbar {
+  transition: all 0.4s ease-in-out;
+  border-bottom: 1px solid transparent;
+
+  &--scrolled {
+    // background: var(--js-cmb-palette-background-main);
+    border-bottom: 1px solid var(--js-cmb-pallette-divider);
+
+    .navbar__logo {
+      padding: 0.5em;
+    }
+  }
+
+  &__logo {
+    transition: padding 0.4s ease-in-out;
+  }
+}
