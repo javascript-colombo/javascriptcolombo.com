@@ -82,8 +82,8 @@ const NavBar: FC<NavBarProps> = ({items}: NavBarProps): ReactElement => {
   const transition: Transition = shouldReduceMotion ? {duration: 0} : {};
 
   const handleScroll = (): void => {
-    const isScrolled = window.scrollY > 0;
-    const navBar = document.getElementById('navbar'); // Add an ID to your navbar element
+    const isScrolled: boolean = window.scrollY > 0;
+    const navBar: HTMLElement | null = document.getElementById('navbar');
 
     if (navBar) {
       if (isScrolled) {
@@ -108,14 +108,7 @@ const NavBar: FC<NavBarProps> = ({items}: NavBarProps): ReactElement => {
       <nav className="mx-auto flex h-[var(--js-cmb-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
         <div className="flex justify-center gap-4 align-middle">
           <Link href="/" passHref className="hover:opacity-75">
-            <Logo
-              className="navbar__logo"
-              data-testid="navbar-logo"
-              alt="Site logo"
-              height={80}
-              width={200}
-              // className={styles.desktopLogo}
-            />
+            <Logo className="navbar__logo" data-testid="navbar-logo" alt="Site logo" height={80} width={200} />
           </Link>
         </div>
 
@@ -124,7 +117,7 @@ const NavBar: FC<NavBarProps> = ({items}: NavBarProps): ReactElement => {
             {items.map((item: NavBarItem) => (
               <NavLink
                 key={item.route}
-                href={item.route}
+                href={item.route as string}
                 title={item.title as string}
                 data-testid={`navbar-item-${item.title}`}
               >
@@ -202,7 +195,7 @@ const NavBar: FC<NavBarProps> = ({items}: NavBarProps): ReactElement => {
                         {items.map((item: NavBarItem) => (
                           <MobileNavLink
                             key={item.route}
-                            href={item.route}
+                            href={item.route as string}
                             title={item.title as string}
                             onClick={toggleMobileMenu}
                             data-testid={`navbar-item-${item.title}`}

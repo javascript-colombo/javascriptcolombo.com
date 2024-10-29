@@ -35,19 +35,14 @@ import {
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import type {TestableComponent} from '@/types/dom';
-import type {PolymorphicComponent, PolymorphicRef} from '@/types/component';
 import {AppRouterInstance} from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import {cn} from '@/lib/utils';
-
-/**
- * Type definition for the polymorphic `NavLink` component that represents a navigation link.
- */
-type PolymorphicNavLinkComponent = <T extends ElementType = 'a'>(props: NavLinkProps<T>) => ReactElement | null;
+import {usePathname} from 'next/navigation';
 
 /**
  * The `NavLinkProps` interface represents the props accepted by the `NavLink` component.
  */
-export type NavLinkProps<T extends ElementType> = PolymorphicComponent<T> &
+export type NavLinkProps = HTMLAttributes<HTMLLIElement> &
   TestableComponent & {
     /**
      * The URL the link points to.
@@ -70,25 +65,14 @@ export type NavLinkProps<T extends ElementType> = PolymorphicComponent<T> &
  * @param props - Props for the component.
  * @returns NavLink as a React component.
  */
-const NavLink: PolymorphicNavLinkComponent = forwardRef(
-  <T extends ElementType>(
-    {as, href, title, className, key, ...rest}: NavLinkProps<T>,
-    ref: PolymorphicRef<T>,
-  ): ReactElement => {
-    const router: AppRouterInstance = useRouter();
-    const isSelected: boolean = router.pathname === href;
-
-    const Element: T | ElementType = as || 'li';
+const NavLink: ForwardRefExoticComponent<NavLinkProps & RefAttributes<HTMLLIElement>> = forwardRef(
+  ({href, title, className, ...rest}: NavLinkProps, ref: ForwardedRef<HTMLLIElement>): ReactElement => {
+    const pathname: string = usePathname();
+    const isSelected: boolean = pathname === href;
 
     return (
-      <Element
-        ref={ref}
-        key={key}
-        className={cn('px-5 py-2 flex items-center font-sans', className)}
-        href={href}
-        {...rest}
-      >
-        <Link href={href} {...rest} legacyBehavior>
+      <li ref={ref} className={cn('px-5 py-2 flex items-center font-sans', className)} {...rest}>
+        <Link href={href} legacyBehavior>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             className={cn(
@@ -102,7 +86,7 @@ const NavLink: PolymorphicNavLinkComponent = forwardRef(
             {title}
           </a>
         </Link>
-      </Element>
+      </li>
     );
   },
 );
@@ -134,25 +118,20 @@ export type MobileNavLinkProps = HTMLAttributes<HTMLLIElement> &
  * @returns MobileNavLink as a React component.
  */
 export const MobileNavLink: ForwardRefExoticComponent<MobileNavLinkProps & RefAttributes<HTMLLIElement>> = forwardRef(
-  (
-    {href, title, className, key, onClick, ...rest}: MobileNavLinkProps,
-    ref: ForwardedRef<HTMLLIElement>,
-  ): ReactElement => {
-    const router: AppRouterInstance = useRouter();
-    const isSelected: boolean = router.pathname === href;
+  ({href, title, className, onClick, ...rest}: MobileNavLinkProps, ref: ForwardedRef<HTMLLIElement>): ReactElement => {
+    const pathname: string = usePathname();
+    const isSelected: boolean = pathname === href;
 
     return (
       <li
         ref={ref}
-        key={key}
         className={cn(
           'm-5 rounded-md border border-gray-200 hover:border-transparent bg-gray-100 dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface hover:shadow-lg focus-ring hover:cursor-pointer text-primary font-sans',
           className,
         )}
-        href={href}
         {...rest}
       >
-        <Link href={href} {...rest} legacyBehavior>
+        <Link href={href} legacyBehavior>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a
             className={cn(

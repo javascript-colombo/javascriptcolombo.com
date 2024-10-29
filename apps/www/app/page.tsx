@@ -27,7 +27,11 @@ import Hero from '@/components/Hero';
 import {ReactElement} from 'react';
 import Footer from '@/components/Footer';
 
-const navItems = [
+const navItems: {
+  name: string;
+  route: string;
+  title: string;
+}[] = [
   {
     name: 'upcoming',
     route: '/',
@@ -40,18 +44,19 @@ const navItems = [
   },
 ];
 
-export const Home = (): ReactElement => (
-  <div dir="ltr">
-    <NavBar items={[]} />
-    <div className="mx-auto flex">
-      <div className="overflow-x-hidden w-full">
-        <main className="relative">
-          <Hero />
-        </main>
+// eslint-disable-next-line react/function-component-definition
+export default function Home(): ReactElement {
+  return (
+    <div dir="ltr">
+      <NavBar items={[]} />
+      <div className="mx-auto flex">
+        <div className="overflow-x-hidden w-full">
+          <main className="relative">
+            <Hero />
+          </main>
+        </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
-);
-
-export default Home;
+  );
+}

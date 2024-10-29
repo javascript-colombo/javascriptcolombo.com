@@ -23,16 +23,15 @@
  */
 
 import type {Metadata} from 'next';
-import {Space_Grotesk} from 'next/font/google';
-import {Inter} from 'next/font/google';
-import './globals.scss';
-import './custom.scss';
+import {Space_Grotesk, Inter} from 'next/font/google';
 import {ReactElement} from 'react';
 import {NextFont} from 'next/dist/compiled/@next/font';
 import ThemeProvider from '@/components/ThemeProvider';
+import './globals.scss';
+import './custom.scss';
 
 const spaceGrotesk: NextFont = Space_Grotesk({subsets: ['latin'], weight: ['400', '500']});
-const inter = Inter({subsets: ['latin']});
+const inter: NextFont = Inter({subsets: ['latin']});
 
 export const metadata: Metadata = {
   title: 'Create Next App',

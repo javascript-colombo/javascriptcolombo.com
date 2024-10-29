@@ -56,5 +56,13 @@ module.exports = {
         ],
       },
     ],
+    // This is needed to allow the use of `@` alias in the import paths.
+    // TODO: Add this in the shared config.
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: [path.resolve(__dirname, 'tsconfig.json')],
+      },
+    },
   },
 };
