@@ -26,4 +26,4 @@ export {default as Greet} from './Greeting';
 export * from './Greeting';
 
 export {default as useGreeting} from './useGreeting';
-export * from
+export * from './useGreeting';
