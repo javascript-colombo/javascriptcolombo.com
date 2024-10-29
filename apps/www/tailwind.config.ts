@@ -80,7 +80,7 @@ const config: Config = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         'space-grotesk': ['Space Grotesk', 'monospace'],
-        'good-brush': ['Good Brush'],
+        'good-brush': ['var(--font-good-brush)'],
         mono: [
           'Menlo',
           'Monaco',
