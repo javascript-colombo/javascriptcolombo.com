@@ -25,6 +25,7 @@
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import animate from 'tailwindcss-animate';
+import {goodBrush} from './app/fonts';
 
 const config: Config = {
   darkMode: ['class'],
@@ -80,7 +81,6 @@ const config: Config = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         'space-grotesk': ['Space Grotesk', 'monospace'],
-        'good-brush': ['Good Brush'],
         mono: [
           'Menlo',
           'Monaco',
