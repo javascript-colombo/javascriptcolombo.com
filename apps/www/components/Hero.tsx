@@ -35,6 +35,7 @@ import CoffeeBeans from '@/icons/CoffeeBeans';
 import RegisterButton from './RegisterButton';
 import FlipWords from './FlipWords';
 import Meetup from '@/icons/Meetup';
+import {goodBrush} from '@/app/fonts';
 
 export type HeroProps = HTMLAttributes<HTMLDivElement> & TestableComponent;
 
@@ -62,7 +63,9 @@ const Hero: ForwardRefExoticComponent<HeroProps & RefAttributes<HTMLDivElement>>
         )}
       >
         <div className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6">
-          <h1 className="hero__title font-good-brush tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[12em] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white">
+          <h1
+            className={`hero__title ${goodBrush.className} tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[12em] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white`}
+          >
             JavaScript Colombo
           </h1>
           <h3 className="flex gap-2 flex-wrap justify-center items-center font-space-grotesk leading-snug dark:text-[#FFFFFFB2] text-[#00000080] text-[20px] lg:text-xl max-w-md md:max-w-xl lg:max-w-[640px] text-center">
