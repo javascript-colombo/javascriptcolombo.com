@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
+  "access": "restricted",
+  "baseBranch": "main",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>"
+    }
+  ],
+  "commit": false,
+  "fixed": [],
+  "ignore": [],
+  "linked": [],
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  },
+  "root": {
+    "packageDir": "."
+  },
+  "updateInternalDependencies": "patch"
+}

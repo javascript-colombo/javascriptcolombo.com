@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "name": "<__JS_NPM_PACKAGE_NAME__>",
+  "version": "0.0.0",
+  "description": "<__WORKSPACE_DESCRIPTION__>",
+  "keywords": [
+    "<__WORKSPACE_KEYWORDS__>"
+  ],
+  "homepage": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>#readme",
+  "bugs": {
+    "url": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>/issues"
+  },
+  "license": "MIT",
+  "author": "<__GITHUB_DISPLAY_NAME__>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<__GITHUB_USERNAME__>/<__GITHUB_REPOSITORY_NAME__>"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "commit": "cz",
+    "dev": "turbo dev",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,cjs,css,json,md,mdx,yml}\"",
+    "lint": "turbo lint",
+    "publish:packages": "changeset publish",
+    "test": "turbo test",
+    "version:packages": "changeset version && pnpm install --lockfile-only",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@brionmario/eslint-plugin": "^0.3.4",
+    "@brionmario/prettier-config": "^0.1.0",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-turbo": "^1.13.3",
+    "husky": "^9.0.11",
+    "prettier": "^3.3.3",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
